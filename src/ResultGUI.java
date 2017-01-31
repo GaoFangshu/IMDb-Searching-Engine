@@ -1,5 +1,6 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -22,36 +23,42 @@ public class ResultGUI {
     private JTextArea imdbidTArea;
     private JTextArea typeTArea;
     private JButton buttonDetails;
+    private JTextPane titleTPanel;
+    private JTextPane yearTPanel;
+    private JTextPane imdbidTPanel;
+    private JTextPane typeTPanel;
 
-    public void init(String url) throws IOException {
+    public void init(String[] jsonList, int i) throws IOException {
 
-        UrlToJson urlToJson = new UrlToJson();
-        String[] jsonList = urlToJson.readURL(url);
+        //UrlToJson urlToJson = new UrlToJson();
+        //String[] jsonList = urlToJson.readURL(url);
 
-        SetJTArea setJTArea = new SetJTArea();
-        setJTArea.setJTArea(titleTArea, jsonList[0], "Title");
-        setJTArea.setJTArea(yearTArea, jsonList[0], "Year");
-        setJTArea.setJTArea(imdbidTArea, jsonList[0], "imdbID");
-        setJTArea.setJTArea(typeTArea, jsonList[0], "Type");
+        SetJTPanel setJTPanel = new SetJTPanel();
+        setJTPanel.setJTPanel(titleTPanel, jsonList[i], "Title");
+        setJTPanel.setJTPanel(yearTPanel, jsonList[i], "Year");
+        setJTPanel.setJTPanel(imdbidTPanel, jsonList[i], "imdbID");
+        setJTPanel.setJTPanel(typeTPanel, jsonList[i], "Type");
 
         JsonToMap jsonToMap = new JsonToMap();
-        setPosterLabel(jsonToMap.getValue(jsonToMap.transfer(jsonList[0]), "Poster"));
+        setPosterLabel(jsonToMap.getValue(jsonToMap.transfer(jsonList[i]), "Poster"));
 
-        setButtonDetails(jsonList[0]);
+        setButtonDetails(jsonList[i]);
     }
 
     public JPanel getResultPanel() {
+        //resultPanel.setLayout(new BoxLayout(resultPanel, BoxLayout.PAGE_AXIS));
         return resultPanel;
     }
 
-    public void setJTArea(JTextArea jTextArea, String var) {
-        jTextArea.setText(var);
+    public void setJTPanel(JTextPane jTextPane, String var) {
+        jTextPane.setText(var);
     }
 
     public void setPosterLabel(String var) throws IOException {
         URL url = new URL(var);
         BufferedImage image = ImageIO.read(url);
-        this.posterLabel.setIcon(new ImageIcon(image));
+        BufferedImage imageResized = resizeImage(image, 150);
+        this.posterLabel.setIcon(new ImageIcon(imageResized));
     }
 
     public void setButtonDetails(String json) {
@@ -80,10 +87,11 @@ public class ResultGUI {
                 JFrame detialsFrame = new JFrame("Details");
                 DetailsGUI detialsGUI = new DetailsGUI();
                 detialsGUI.init(detailsJson);
+                detialsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 detialsFrame.setContentPane(detialsGUI.getDetailsPanel());
                 detialsFrame.pack();
+                detialsFrame.setLocationRelativeTo(null);
                 detialsFrame.setVisible(true);
-                detialsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -91,6 +99,17 @@ public class ResultGUI {
 
 
         }
+    }
+
+    public BufferedImage resizeImage(BufferedImage inputImage, double width) {
+        double width0 = inputImage.getWidth();
+        double height0 = inputImage.getHeight();
+        int height = (int)((width/width0)*height0);
+        BufferedImage outputImage = new BufferedImage((int)width, height, BufferedImage.TYPE_INT_RGB);
+        Graphics g = outputImage.createGraphics();
+        g.drawImage(inputImage, 0, 0, (int)width, height, null);
+        g.dispose();
+        return outputImage;
     }
 
 

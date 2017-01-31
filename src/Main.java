@@ -8,25 +8,10 @@ public class Main {
         JFrame mainFrame = new JFrame("IMDb");
         GUI gui = new GUI();
         gui.init();
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setContentPane(gui.getMainPanel());
         mainFrame.pack();
+        mainFrame.setLocationRelativeTo(null);
         mainFrame.setVisible(true);
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-
-
-
-
-        /*
-        String website = new String("http://www.omdbapi.com/?t=the+walking+dead&plot=full");
-
-        UrlToJson url = new UrlToJson();
-        String page = url.readURL(website);
-        System.out.println(page);
-
-        JsonToMap json = new JsonToMap();
-        json.transfer(page);
-        */
     }
 }
