@@ -7,7 +7,7 @@ public class ConditionToUrl {
     private String title = ""; // Parameter is different between "By ID/Title" and "By Search"
     private String type = "";
     private String year = "";
-    private int page = 1; // Default value is 1.
+    private int page; // Default value is 1.
     private String plot = "full"; // Always full.
 
     public void setMode(boolean mode) {

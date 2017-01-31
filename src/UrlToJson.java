@@ -23,9 +23,10 @@ public class UrlToJson {
             if (jsonObject.has("Search")) {
                 String searchString = String.valueOf(jsonObject.get("Search"));  // Value of key "Search".
                 String searchMark = searchString.replace("{", "%#{");  // Mark the location of each "{".
-                String moviesString = searchMark.substring(3, searchString.length()-1);
-                String[] movies = moviesString.split(",%#");
-                System.out.println(movies);
+                String moviesString = searchMark.substring(3, searchMark.length()-1);
+                String[] movies = moviesString.split(",%#");  // String[] of movies' Type, Year, imdbID, Poster, Title.
+                //System.out.println("电影："+movies);
+                //System.out.println("页数："+movies.length);
                 return movies;
             } else {
                 return new String[] { inputline };
