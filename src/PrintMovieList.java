@@ -1,20 +1,22 @@
+/**
+ * Created by Fangshu Gao on 2017-01-31.
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-/**
- * Created by Fangshu Gao on 2017-01-31.
- */
 public class PrintMovieList {
 
 
-    public void printMovieList(String title, String year, int pagenum) {
+    public void printMovieList(String title, String year, String type, int pagenum) {
 
         ConditionToUrl conditionToUrl = new ConditionToUrl();
         conditionToUrl.setMode(false);
         conditionToUrl.setTitle(title);
         conditionToUrl.setYear(year);
         conditionToUrl.setPage(pagenum);
+        conditionToUrl.setType(type);
         String url = conditionToUrl.conditionToUrl();
 
         JFrame resultFrame = new JFrame("Searching Result");
@@ -38,14 +40,26 @@ public class PrintMovieList {
             // add page button
             PageButton pagebutton = new PageButton();
             listPanel.add(pagebutton.getPagePanel());
+            pagebutton.setPagenum(pagenum);
+            pagebutton.setTitle(title);
+            pagebutton.setYear(year);
+            pagebutton.init(type);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         JScrollPane scrollPanel = new JScrollPane(listPanel);
+
         scrollPanel.setPreferredSize(new Dimension(500, 750));
 
-        resultFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                scrollPanel.getVerticalScrollBar().setValue(0);
+            }
+        });  // Reference: http://stackoverflow.com/questions/41974427/how-to-let-scrollbars-default-position-be-at-top
+
+        resultFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); // TODO: Automatically close current JFrame when click page button
         resultFrame.setContentPane(scrollPanel);
         resultFrame.pack();
         resultFrame.setLocationRelativeTo(null);

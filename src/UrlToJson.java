@@ -1,12 +1,10 @@
 /**
  * Created by Fangshu Gao on 2017-01-15.
  */
-import org.json.JSONObject;
 
-import javax.swing.*;
+import org.json.JSONObject;
 import java.net.*;
 import java.io.*;
-import java.util.ArrayList;
 
 public class UrlToJson {
 
@@ -25,8 +23,6 @@ public class UrlToJson {
                 String searchMark = searchString.replace("{", "%#{");  // Mark the location of each "{".
                 String moviesString = searchMark.substring(3, searchMark.length()-1);
                 String[] movies = moviesString.split(",%#");  // String[] of movies' Type, Year, imdbID, Poster, Title.
-                //System.out.println("电影："+movies);
-                //System.out.println("页数："+movies.length);
                 return movies;
             } else {
                 return new String[] { inputline };

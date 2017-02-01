@@ -1,8 +1,9 @@
-import javax.swing.*;
-
 /**
  * Created by Fangshu Gao on 2017-01-15.
  */
+
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) throws Exception {
         JFrame mainFrame = new JFrame("IMDb");
