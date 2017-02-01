@@ -2,6 +2,15 @@
 
 An IMDb Searching Engine based on Java and OMDb API.
 
+## Attention
+
+* Before running the project, please make sure that `json.jar` is already added to Classpath. If not, you can add `json-20160810.jar` in this repository.
+* This project is developed with:
+> IntelliJ IDEA 2016.2.5
+ Build #IC-162.2228.15, built on October 14, 2016
+ JRE: 1.8.0_112-release-287-b2 x86
+ JVM: OpenJDK Server VM by JetBrains s.r.o
+
 ## What is this project?
 
 This is a Java searching engine which can search movie and its information. The data of movies is from [OMDb API](http://www.omdbapi.com/).
@@ -37,15 +46,6 @@ For example, if you want to search movie *[A Chinese Odyssey Part One: Pandora's
 </table>
 
 When choosing one result to check its details, the searching engine will search again using IMDb ID as new searching condition.
-
-## Attention
-
-* Before running the project, please make sure that `json.jar` is already added to Classpath. If not, you can add `json-20160810.jar` in this repository.
-* This project is developed with:
-> IntelliJ IDEA 2016.2.5
- Build #IC-162.2228.15, built on October 14, 2016
- JRE: 1.8.0_112-release-287-b2 x86
- JVM: OpenJDK Server VM by JetBrains s.r.o
 
 ## Contact me
 
