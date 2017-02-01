@@ -7,13 +7,7 @@ An IMDb Searching Engine based on Java and OMDb API.
 * Before running the project, please make sure that `json.jar` is already added to Classpath. If not, you can add `json-20160810.jar` in this repository.
 * This project is developed with:
 
- > IntelliJ IDEA 2016.2.5
- > 
- > Build #IC-162.2228.15, built on October 14, 2016
- > 
- > JRE: 1.8.0_112-release-287-b2 x86 
- >
- > JVM: OpenJDK Server VM by JetBrains s.r.o
+ > IntelliJ IDEA 2016.2.5<br>Build #IC-162.2228.15, built on October 14, 2016<br>JRE: 1.8.0_112-release-287-b2 x86<br>JVM: OpenJDK Server VM by JetBrains s.r.o
 
 ## What is this project?
 
