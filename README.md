@@ -22,7 +22,7 @@ This is a Java searching engine which can search movie and its information. The 
     </tr>
 </table>
 
-## More Project Details
+## How this project works?
 
 This searching engine can be regarded as a GUI of [OMDb database](http://www.omdbapi.com/). You can enter their conditions (shown as the left screenshot), then choose one exact result (shown as the middle screenshot) and check its details (shown as the right screenshot).
 
@@ -36,10 +36,16 @@ For example, if you want to search movie *[A Chinese Odyssey Part One: Pandora's
     </tr>
 </table>
 
-When choosing one result to check its details, the searching engine will search again while its IMDb ID becoming new searching condition.
+When choosing one result to check its details, the searching engine will search again using IMDb ID as new searching condition.
 
-## Who will use this repo or project?
-## What is the goal of this project?
+## Attention
+
+* Before running the project, please make sure that `json.jar` is already added to Classpath. If not, you can add `json-20160810.jar` in this repository.
+* This project is developed with:
+> IntelliJ IDEA 2016.2.5
+ Build #IC-162.2228.15, built on October 14, 2016
+ JRE: 1.8.0_112-release-287-b2 x86
+ JVM: OpenJDK Server VM by JetBrains s.r.o
 
 ## Contact me
 
