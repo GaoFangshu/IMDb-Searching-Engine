@@ -5,16 +5,14 @@ An IMDb Searching Engine based on Java and OMDb API.
 This is a Java searching engine which can search movie and its information. The data of movies is from [OMDb API](http://www.omdbapi.com/).
 
 ## Screenshots
-![](https://github.com/GaoFangshu/IMDb-Searching-Engine/blob/master/docs/screenshots/1.png)
-![](https://github.com/GaoFangshu/IMDb-Searching-Engine/blob/master/docs/screenshots/2.png)
-![](https://github.com/GaoFangshu/IMDb-Searching-Engine/blob/master/docs/screenshots/3.png)
-
 
 <table>
     <tr>
-        <td>
+        <th colspan="2">
             <img alt="1" src="docs/screenshots/1.png">
-        </td>
+        </th>
+    </tr>
+    <tr>
         <td>
             <img alt="2" src="docs/screenshots/2.png">
         </td>
