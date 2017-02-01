@@ -1,3 +1,7 @@
+/**
+ * Created by Fangshu Gao on 2017-01-17.
+ */
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -5,12 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by Fangshu Gao on 2017-01-17.
- */
 public class ResultGUI {
     private JPanel resultPanel;
     private JLabel titleLabel;
@@ -23,21 +23,17 @@ public class ResultGUI {
     private JTextArea imdbidTArea;
     private JTextArea typeTArea;
     private JButton buttonDetails;
-    private JTextPane titleTPanel;
-    private JTextPane yearTPanel;
-    private JTextPane imdbidTPanel;
-    private JTextPane typeTPanel;
 
     public void init(String[] jsonList, int i) throws IOException {
 
-        //UrlToJson urlToJson = new UrlToJson();
-        //String[] jsonList = urlToJson.readURL(url);
+        titleTArea.setLineWrap(true);
+        titleTArea.setWrapStyleWord(true);
 
-        SetJTPanel setJTPanel = new SetJTPanel();
-        setJTPanel.setJTPanel(titleTPanel, jsonList[i], "Title");
-        setJTPanel.setJTPanel(yearTPanel, jsonList[i], "Year");
-        setJTPanel.setJTPanel(imdbidTPanel, jsonList[i], "imdbID");
-        setJTPanel.setJTPanel(typeTPanel, jsonList[i], "Type");
+        SetJTArea setJTArea = new SetJTArea();
+        setJTArea.setJTArea(titleTArea, jsonList[i], "Title");
+        setJTArea.setJTArea(yearTArea, jsonList[i], "Year");
+        setJTArea.setJTArea(imdbidTArea, jsonList[i], "imdbID");
+        setJTArea.setJTArea(typeTArea, jsonList[i], "Type");
 
         JsonToMap jsonToMap = new JsonToMap();
         setPosterLabel(jsonToMap.getValue(jsonToMap.transfer(jsonList[i]), "Poster"));
@@ -46,12 +42,7 @@ public class ResultGUI {
     }
 
     public JPanel getResultPanel() {
-        //resultPanel.setLayout(new BoxLayout(resultPanel, BoxLayout.PAGE_AXIS));
         return resultPanel;
-    }
-
-    public void setJTPanel(JTextPane jTextPane, String var) {
-        jTextPane.setText(var);
     }
 
     public void setPosterLabel(String var) throws IOException {
@@ -87,16 +78,16 @@ public class ResultGUI {
                 JFrame detialsFrame = new JFrame("Details");
                 DetailsGUI detialsGUI = new DetailsGUI();
                 detialsGUI.init(detailsJson);
-                detialsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                detialsFrame.setContentPane(detialsGUI.getDetailsPanel());
+                JScrollPane scrollPanel = new JScrollPane(detialsGUI.getDetailsPanel()); // Add scrollPanel
+                scrollPanel.setPreferredSize(new Dimension(1024, 768));
+                detialsFrame.setContentPane(scrollPanel);
                 detialsFrame.pack();
                 detialsFrame.setLocationRelativeTo(null);
                 detialsFrame.setVisible(true);
+                detialsFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
 
         }
     }

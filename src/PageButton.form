@@ -10,22 +10,28 @@
     <children>
       <component id="1d77b" class="javax.swing.JButton" binding="buttonNextPage">
         <constraints>
-          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="15"/>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="30"/>
+            <preferred-size width="150" height="30"/>
+            <maximum-size width="150" height="30"/>
           </grid>
         </constraints>
         <properties>
-          <text value="Next PageButton"/>
+          <font name="Arial" size="15"/>
+          <text value="Next Page"/>
         </properties>
       </component>
       <component id="e8ef8" class="javax.swing.JButton" binding="buttonPreviousPage">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="15"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="150" height="30"/>
+            <preferred-size width="150" height="30"/>
+            <maximum-size width="150" height="30"/>
           </grid>
         </constraints>
         <properties>
-          <text value="Pevious PageButton"/>
+          <font name="Arial" size="15"/>
+          <text value="Pevious Page"/>
         </properties>
       </component>
       <component id="d8fbf" class="javax.swing.JLabel" binding="pageLabel">
@@ -33,6 +39,7 @@
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Arial" size="15"/>
           <text value=""/>
         </properties>
       </component>

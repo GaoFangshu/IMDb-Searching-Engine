@@ -1,12 +1,13 @@
+/**
+ * Created by Fangshu Gao on 2017-01-18.
+ */
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-/**
- * Created by Fangshu Gao on 2017-01-18.
- */
 public class DetailsGUI {
     private JPanel detailsPanel;
     private JLabel titleLabel;
@@ -46,6 +47,22 @@ public class DetailsGUI {
     private JLabel posterLabel;
 
     public void init(String detailsJson) throws IOException {
+
+        titleTArea.setLineWrap(true);
+        titleTArea.setWrapStyleWord(true);
+        genreArea.setLineWrap(true);
+        genreArea.setWrapStyleWord(true);
+        awardsTArea.setLineWrap(true);
+        awardsTArea.setWrapStyleWord(true);
+        directorTArea.setLineWrap(true);
+        directorTArea.setWrapStyleWord(true);
+        writerTArea.setLineWrap(true);
+        writerTArea.setWrapStyleWord(true);
+        actorsTArea.setLineWrap(true);
+        actorsTArea.setWrapStyleWord(true);
+        plotTArea.setLineWrap(true);
+        plotTArea.setWrapStyleWord(true);
+
         SetJTArea setJTArea = new SetJTArea();
         setJTArea.setJTArea(titleTArea, detailsJson, "Title");
         setJTArea.setJTArea(releasedTArea, detailsJson, "Released");

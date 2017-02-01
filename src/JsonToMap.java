@@ -9,7 +9,6 @@ public class JsonToMap {
 
     public JSONObject transfer(String urlpage) {
         this.obj = new JSONObject(urlpage);
-        //System.out.println(obj.get("Search")); //John
         return obj;
     }
 

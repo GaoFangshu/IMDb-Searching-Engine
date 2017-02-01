@@ -1,6 +1,7 @@
 /**
  * Created by Fangshu Gao on 2017-01-15.
  */
+
 public class ConditionToUrl {
     private boolean mode; // 1:By ID or Title; 0:By Search
     private String id = "";
@@ -41,19 +42,19 @@ public class ConditionToUrl {
     public String conditionToUrl() {
         String url = new String();
 
-        if (mode == true) {  //By ID or Title
+        if (mode == true) { // By ID or Title
 
             if (!title.equals("")) {
                 url = "http://www.omdbapi.com/?" + "t=" + title +
                         "&" + "y=" + year +
-                        "&" + "plot=" + plot + //full
+                        "&" + "plot=" + plot + // full
                         "&" + "r=json";
                 System.out.println(url);
                 return url;
             } else if (!id.equals("")){
                 url = "http://www.omdbapi.com/?" + "i=" + id +
                         "&" + "y=" + year +
-                        "&" + "plot=" + plot + //full
+                        "&" + "plot=" + plot + // full
                         "&" + "r=json";
                 System.out.println(url);
                 return url;
@@ -62,14 +63,14 @@ public class ConditionToUrl {
                 return url;
             }
 
-        } else {  //By Search
+        } else { // By Search
 
             if (!title.equals("")) {
                 url = "http://www.omdbapi.com/?" + "s=" + title +
                         "&" + "y=" + year +
                         "&" + "plot=" + plot + //full
                         "&" + "page=" + page +
-                        "&" + "r=type" + type +
+                        "&" + "type=" + type +
                         "&" + "r=json";
                 System.out.println(url);
                 return url;
