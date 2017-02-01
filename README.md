@@ -8,8 +8,11 @@ An IMDb Searching Engine based on Java and OMDb API.
 * This project is developed with:
 
 > IntelliJ IDEA 2016.2.5
+> 
 > Build #IC-162.2228.15, built on October 14, 2016
+> 
 > JRE: 1.8.0_112-release-287-b2 x86
+> 
 > JVM: OpenJDK Server VM by JetBrains s.r.o
 
 ## What is this project?
