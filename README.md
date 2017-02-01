@@ -22,7 +22,7 @@ This is a Java searching engine which can search movie and its information. The 
     </tr>
 </table>
 
-## How does it work? More Project Details
+## More Project Details
 
 This searching engine can be regarded as a GUI of [OMDb database](http://www.omdbapi.com/). You can enter their conditions (shown as the left screenshot), then choose one exact result (shown as the middle screenshot) and check its details (shown as the right screenshot).
 
